@@ -22,11 +22,17 @@ function getWorkingHours(empCheck) {
             return 0;    
      }
 }
-//UC4 wages for a Month assuming 20 working days in a Month
-let empHrs = 0;
-for (let day =0; day < No_Of_Working_Days; day++) {
+//UC5 calculate wages till a condtion of total working hours 160 or max days of 20 is reached for a month
+const MAX_HRS_IN_MONTH = 160;
+const NUM_OF_WORKING_DAYS= 20;
+let totalempHrs = 0;
+let totalWorkingDays = 0;
+while (totalempHrs <= MAX_HRS_IN_MONTH &&
+    totalWorkingDays < NUM_OF_WORKING_DAYS) {
+    totalWorkingDays++;
     let empCheck = Math.floor(Math.random() * 10) % 3;
-    empHrs += getWorkingHours(empCheck);
+    totalempHrs += getWorkingHours(empCheck);
+
 }
-let empWage = empHrs * WAGE_PER_HOUR;
-console.log("Total Working Hours: " + empHrs + ", Employee Wage: " + empWage);
+let empWage = totalempHrs * WAGE_PER_HOUR;
+console.log("Total Days : " + totalWorkingDays +  " , Total Working Hours : " + totalempHrs + " , Employee Wage : " + empWage);
