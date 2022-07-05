@@ -29,6 +29,7 @@ function calDailyWage(empHrs) {
 let totalEmpHrs = 0;
 let totalWorkingDays = 0;
 let empDailyWageArr = new Array();
+let empDailyWageMap = new Map();
 while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS) {
    totalWorkingDays++;
    let empCheck = Math.floor(Math.random() * 10) % 3;
@@ -92,3 +93,8 @@ function totalDaysWorked(numOfDays, dailyWage) {
     return numOfDays;
 }
 console.log("7G Total number of days employee worked :" + empDailyWageArr.reduce(totalDaysWorked, 0));
+
+//UC 8 Map Functions
+
+console.log("Employee Wage Map totalHrs: " + 
+Array.from(empDailyWageMap.values()).reduce(totalWages, 0));
