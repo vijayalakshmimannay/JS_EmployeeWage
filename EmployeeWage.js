@@ -32,12 +32,21 @@ let totalWorkingDays = 0;
 let empDailyWageArr = new Array();
 let empDailyWageMap = new Map();
 let empDailyHrsMap = new Map();
+let empDailyHrsAndWageArry = new Array();
 while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS) {
    totalWorkingDays++;
    let empCheck = Math.floor(Math.random() * 10) % 3;
    let empHrs = getWorkingHours(empCheck);
    totalEmpHrs += empHrs;
-   empDailyWageArr.push(calDailyWage(empHrs));
+   empDailyHrsAndWageArry.push(
+    {
+      dayNum:totalWorkingDays,
+      dailyHours:empHrs,
+      dailyWage: calDailyWage(empHrs),
+      toString(){
+        return '\nDay' + this.dayNum + '=> Working Hours is ' + this.dailyHours  + " " + 'And Wage Earned = ' + this.dailyWage
+    },
+    });
    empDailyHrsMap.set(totalWorkingDays, empHrs);
    empDailyWageMap.set(totalWorkingDays, calDailyWage(empHrs));
 }
@@ -124,8 +133,10 @@ const findTotal = (totalVal, dailyVal) => {
        else if (value == 4) partWorkingDays.push(key);
        else nonWorkingDays.push(key);
     });
-    console.log("Full Working Days: "+ fullWorkingDays);
-    console.log("Part Working Days: "+ partWorkingDays);
-    console.log("Non Working Days: "+ nonWorkingDays);
+console.log("Full Working Days: "+ fullWorkingDays);
+console.log("Part Working Days: "+ partWorkingDays);
+console.log("Non Working Days: "+ nonWorkingDays);
     
-    
+//UC 10A to 11D Using Object Functions along with Arrow Functions
+//UC 10 Store the day, hours worked and wage earned in single object
+console.log("Showing Daily Hours Worked and Wage Earned: " +empDailyHrsAndWageArry);
