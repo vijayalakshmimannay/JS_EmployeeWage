@@ -140,6 +140,7 @@ console.log("Non Working Days: "+ nonWorkingDays);
 //UC 10A to 11D Using Object Functions along with Arrow Functions
 //UC 10 Store the day, hours worked and wage earned in single object
 console.log("Showing Daily Hours Worked and Wage Earned: " +empDailyHrsAndWageArry);
+//UC 11
 
 let totalWage = empDailyHrsAndWageArry
         .filter(dailyHrsAndWage => dailyHrsAndWage.dailyWage > 0)
